@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Petit Blog{% endblock %}
+
+{% block body %}
+<!-- Header -->
+<header id="header">
+    <div class="logo"><a href="{{ path('blog') }}">Petit Blog <span>by QLF</span></a></div>
+</header>
+<!-- Main -->
+<section id="main">
+    <div class="inner">
+    <!-- Three -->
+        <section id="three" class="wrapper">
+            
+            {% set myVal = 0 %}
+            {% for article in articles %}
+                {% set myVal = myVal + 1 %}
+                {% if myVal is odd %}
+                <div class="spotlight">
+                    <div class="image flush"><img src="{{ article.urlImg }}" alt="" /></div>
+                    <div class="inner">
+                        <h3>{{ article.titre }}</h3>
+                        <span>{{ article.content |slice(0, 55)|raw}} . . .</span>
+                        <a href="{{ path('article_show', {'id': article.id}) }}" class="button special small mt-btn">Lire l'article</a>
+                    </div>
+                </div>
+                {% else %}
+                <div class="spotlight alt">
+                    <div class="image flush"><img src="{{ article.urlImg }}" alt="" /></div>
+                    <div class="inner">
+                        <h3>{{ article.titre }}</h3>
+                        <span>{{ article.content |slice(0, 55)|raw}} . . .</span>
+                        <a href="{{ path('article_show', {'id': article.id}) }}" class="button special small mt-btn">Lire l'article</a>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </section>
+    </div>
+</section>
+{% endblock %}
+
+

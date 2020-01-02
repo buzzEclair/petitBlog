@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{article.titre}}{% endblock %}
+
+{% block body %}
+<header id="header">
+        <div class="logo"><a href="{{ path('blog') }}">Petit Blog <span>by QLF</span></a></div>
+    </header>
+<section id="main">
+        <div class="inner">
+
+        <!-- One -->
+            <section id="one" class="wrapper style1">
+
+                <div class="image fit flush">
+                    <img src="{{article.urlImg}}" alt="" />
+                </div>
+                <header class="special">
+                    <h2>{{article.titre}}</h2>
+                    {% for category in categorys %}
+                        <p>{{category.name}}</p>
+                    {% endfor %}
+                    
+                </header>
+                <div class="content">
+                    {{article.content|raw}}
+                </div>
+            </section>
+
+    </section>
+{% endblock %}

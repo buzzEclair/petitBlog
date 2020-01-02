@@ -1,0 +1,79 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<!-- Header -->
+<header id="header">
+    <div class="logo"><a href="#">Dashboard<span>by QLF</span></a></div>
+</header>
+<!-- Main -->
+<section id="main">
+    <div class="inner">
+        <div class="wrapper style1">
+            <div class="content">
+
+                <!-- Elements -->
+                    <h2 id="elements">Dashboard</h2>
+                    <div class="row 200%">
+                        <div class="6u 12u$(medium)">
+
+                            <!-- Table -->
+                                <h3>Article</h3>
+                                <a href="{{ path('new_article') }}" class="button special small">Créer un article</a>
+                                
+                                <div class="table-wrapper">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Titre</th>
+                                                <th>Edit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for article in articles %}
+                                            <tr>
+                                                <td>{{ article.titre }}</td>
+                                                <td><a href="{{ path('edit_article', {'id': article.id}) }}" class="button special small">editer</a></td>
+                                                <td><a href="{{ path('delete_article', {'id': article.id}) }}" class="button special small">supprimer</a></td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                       
+                                    </table>
+                                </div>
+                        </div>
+                        <div class="6u 12u$(medium)">
+
+                                <!-- Table -->
+                                    <h3>Categories</h3>
+                                    <a href="{{ path('new_category') }}" class="button special small">Créer une catégorie</a>
+                                    
+                                    <div class="table-wrapper">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Nom</th>
+                                                    <th>Edit</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for category in categorys %}
+                                                <tr>
+                                                    <td>{{ category.name }}</td>
+                                                    <td><a href="{{ path('edit_category', {'id': category.id}) }}" class="button special small">editer</a></td>
+                                                    
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                           
+                                        </table>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+</section>
+{% endblock %}

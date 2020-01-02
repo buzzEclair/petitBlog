@@ -1,0 +1,17 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<section id="main">
+        <div class="inner">
+            <div class="wrapper style1">
+                <div class="content">
+                    {{ form_start(form) }}
+                    <input type="submit" class="btn" value="Create"/>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+</section>
+{% endblock %}
